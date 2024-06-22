@@ -36,6 +36,9 @@ Monster::Monster(MonsterType* mType) :
 	defaultOutfit = mType->info.outfit;
 	currentOutfit = mType->info.outfit;
 	skull = mType->info.skull;
+	chanceToSpawnWithWhiteSkull = mType->info.chanceToSpawnWithWhiteSkull;
+	chanceToSpawnWithRedSkull = mType->info.chanceToSpawnWithRedSkull;
+	chanceToSpawnWithBlackSkull = mType->info.chanceToSpawnWithBlackSkull;
 	level = uniform_random(mType->info.minLevel, mType->info.maxLevel);
 	health = mType->info.health;
 	healthMax = mType->info.healthMax;

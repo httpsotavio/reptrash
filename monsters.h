@@ -97,6 +97,9 @@ class MonsterType
 		std::vector<summonBlock_t> summons;
 
 		Skulls_t skull = SKULL_NONE;
+		uint16_t chanceToSpawnWithWhiteSkull = 0;
+		uint16_t chanceToSpawnWithRedSkull = 0;
+		uint16_t chanceToSpawnWithBlackSkull = 0;
 		Outfit_t outfit = {};
 		RaceType_t race = RACE_BLOOD;
 

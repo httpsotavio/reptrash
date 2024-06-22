@@ -842,6 +842,18 @@ MonsterType* Monsters::loadMonster(const std::string& file, const std::string& m
 		mType->info.skull = getSkullType(asLowerCaseString(attr.as_string()));
 	}
 
+	if ((attr = monsterNode.attribute("chanceToSpawnWithWhiteSkull"))) {
+		mType->info.chanceToSpawnWithWhiteSkull = pugi::cast<uint16_t>(attr.value());
+	}
+
+	if ((attr = monsterNode.attribute("chanceToSpawnWithRedSkull"))) {
+		mType->info.chanceToSpawnWithRedSkull = pugi::cast<uint16_t>(attr.value());
+	}
+
+	if ((attr = monsterNode.attribute("chanceToSpawnWithBlackSkull"))) {
+		mType->info.chanceToSpawnWithBlackSkull = pugi::cast<uint16_t>(attr.value());
+	}
+
 	if ((attr = monsterNode.attribute("script"))) {
 		if (!scriptInterface) {
 			scriptInterface.reset(new LuaScriptInterface("Monster Interface"));

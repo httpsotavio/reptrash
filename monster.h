@@ -198,6 +198,10 @@ class Monster final : public Creature
 		int32_t challengeFocusDuration = 0;
 		int32_t stepDuration = 0;
 
+		int32_t chanceToSpawnWithWhiteSkull = 0;
+		int32_t chanceToSpawnWithRedSkull = 0;
+		int32_t chanceToSpawnWithBlackSkull = 0;
+
 		Position masterPos;
 
 		bool ignoreFieldDamage = false;

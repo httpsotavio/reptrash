@@ -2885,7 +2885,11 @@ void LuaScriptInterface::registerFunctions()
 	registerMethod("MonsterType", "maxHealth", LuaScriptInterface::luaMonsterTypeMaxHealth);
 	registerMethod("MonsterType", "runHealth", LuaScriptInterface::luaMonsterTypeRunHealth);
 	registerMethod("MonsterType", "experience", LuaScriptInterface::luaMonsterTypeExperience);
-	registerMethod("MonsterType", "skull", LuaScriptInterface::luaMonsterTypeSkull);
+	registerMethod("MonsterType", "skull", LuaScriptInterface::luaMonsterTypeSkull);	
+	
+	registerMethod("MonsterType", "getChanceToSpawnWithWhiteSkull", LuaScriptInterface::luaMonsterTypeChanceToSpawnWithWhiteSkull);	
+	registerMethod("MonsterType", "getChanceToSpawnWithRedSkull", LuaScriptInterface::luaMonsterTypeChanceToSpawnWithRedSkull);
+	registerMethod("MonsterType", "getChanceToSpawnWithBlackSkull", LuaScriptInterface::luaMonsterTypeChanceToSpawnWithBlackSkull);
 
 	registerMethod("MonsterType", "combatImmunities", LuaScriptInterface::luaMonsterTypeCombatImmunities);
 	registerMethod("MonsterType", "conditionImmunities", LuaScriptInterface::luaMonsterTypeConditionImmunities);
@@ -13907,6 +13911,48 @@ int LuaScriptInterface::luaMonsterTypeSkull(lua_State* L)
 				monsterType->info.skull = getSkullType(getString(L, 2));
 			}
 			pushBoolean(L, true);
+		}
+	} else {
+		lua_pushnil(L);
+	}
+	return 1;
+}
+
+int LuaScriptInterface::luaMonsterTypeChanceToSpawnWithWhiteSkull(lua_State* L)
+{
+	// get: monsterType:getChanceToSpawnWithWhiteSkull()
+	MonsterType* monsterType = getUserdata<MonsterType>(L, 1);
+	if (monsterType) {
+		if (lua_gettop(L) == 1) {
+			lua_pushnumber(L, monsterType->info.chanceToSpawnWithWhiteSkull);
+		}
+	} else {
+		lua_pushnil(L);
+	}
+	return 1;
+}
+
+int LuaScriptInterface::luaMonsterTypeChanceToSpawnWithRedSkull(lua_State* L)
+{
+	// get: monsterType:getChanceToSpawnWithRedSkull()
+	MonsterType* monsterType = getUserdata<MonsterType>(L, 1);
+	if (monsterType) {
+		if (lua_gettop(L) == 1) {
+			lua_pushnumber(L, monsterType->info.chanceToSpawnWithRedSkull);
+		}
+	} else {
+		lua_pushnil(L);
+	}
+	return 1;
+}
+
+int LuaScriptInterface::luaMonsterTypeChanceToSpawnWithBlackSkull(lua_State* L)
+{
+	// get: monsterType:getChanceToSpawnWithBlackSkull()
+	MonsterType* monsterType = getUserdata<MonsterType>(L, 1);
+	if (monsterType) {
+		if (lua_gettop(L) == 1) {
+			lua_pushnumber(L, monsterType->info.chanceToSpawnWithBlackSkull);
 		}
 	} else {
 		lua_pushnil(L);

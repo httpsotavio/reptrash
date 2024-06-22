@@ -1368,6 +1368,9 @@ class LuaScriptInterface
 		static int luaMonsterTypeRunHealth(lua_State* L);
 		static int luaMonsterTypeExperience(lua_State* L);
 		static int luaMonsterTypeSkull(lua_State* L);
+		static int luaMonsterTypeChanceToSpawnWithWhiteSkull(lua_State* L);
+		static int luaMonsterTypeChanceToSpawnWithRedSkull(lua_State* L);
+		static int luaMonsterTypeChanceToSpawnWithBlackSkull(lua_State* L);
 
 		static int luaMonsterTypeCombatImmunities(lua_State* L);
 		static int luaMonsterTypeConditionImmunities(lua_State* L);
